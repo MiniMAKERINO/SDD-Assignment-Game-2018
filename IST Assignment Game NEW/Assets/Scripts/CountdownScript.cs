@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class CountdownScript : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CountdownScript : MonoBehaviour
     [SerializeField] private float mainTimer;
     [SerializeField] private GameObject TPLocation;
     [SerializeField] private GameObject TPObject;
-   // [SerializeField] private GameObject playerObject;
+    [SerializeField] private GameObject playerObject;
 
     private float timer;
     private bool canCount = true;
@@ -18,11 +19,14 @@ public class CountdownScript : MonoBehaviour
 	private void Start()
 	{
         timer = mainTimer;
-        //playerObject.setActive(true);
-	}
+        playerObject.SetActive(true);
+        playerObject.GetComponent<FirstPersonController>().enabled = true;
+
+    }
 
 	private void Update()
 	{
+
         if(timer >= 0.0f && canCount)
         {
             timer -= Time.deltaTime;
@@ -36,17 +40,17 @@ public class CountdownScript : MonoBehaviour
             doOnce = true;
             uiText.text = "Too Slow! Press 'R' to restart";
             timer = 0.0f;
-            //playerObject.setActive(false);
-            // Make Press "r" to restart
-            {
-                
-            }
+            playerObject.GetComponent<FirstPersonController>().enabled = false;
 
         }
 
-        if(Input.GetKeyDown(Keycode.R))
+        if(Input.GetKeyDown(KeyCode.R))
         {
-            TPObject.transform.position = TPLocation.tranform.position;
+            TPObject.transform.position = TPLocation.transform.position;
+            timer = mainTimer;
+            canCount = true;
+            doOnce = false;
+            playerObject.GetComponent<FirstPersonController>().enabled = true;
         }
 
 	}
