@@ -6,50 +6,49 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class CountdownScript : MonoBehaviour
 {
-    [SerializeField] private Text uiText;
-    [SerializeField] private float mainTimer;
-    [SerializeField] private GameObject TPLocation;
-    [SerializeField] private GameObject playerObject;
+    [SerializeField] private Text uiText; // uiText variable
+    [SerializeField] private float mainTimer; // Main timer float
+    [SerializeField] private GameObject TPLocation; // Start Location
+    [SerializeField] private GameObject playerObject; // Player object
 
-    private float timer;
-    private bool canCount = true;
-    private bool doOnce = false;
+    private float timer; // Secondary timer float
+    private bool canCount = true; // Bug/Error prevention boolean adds secondary condition that helps prevents bugs/glitches
+    private bool doOnce = false; // Bug/Error prevention boolean adds secondary condition that helps prevents bugs/glitches
 
-	private void Start()
+    private void Start() // Initialize upon starting a scene
 	{
-        timer = mainTimer;
-        playerObject.SetActive(true);
-        playerObject.GetComponent<FirstPersonController>().enabled = true;
+        timer = mainTimer; // Timer is set to mainTimer value
+        playerObject.GetComponent<FirstPersonController>().enabled = true; // First person controller script component is enabled
 
     }
 
-	private void Update()
+	private void Update() // Updates within every frame
 	{
 
-        if(timer >= 0.0f && canCount)
+        if(timer >= 0.0f && canCount) // If the timer is greater than or equal to 0.0 and canCount = True (Bug prevention)
         {
-            timer -= Time.deltaTime;
-            uiText.text = timer.ToString("F");
+            timer -= Time.deltaTime; // Timer decreases by 1 second
+            uiText.text = timer.ToString("F"); // Float is converted to string and Time is shown on screen
 
         }
 
-        else if (timer <= 0.0f && !doOnce)
+        else if (timer <= 0.0f && !doOnce) // If timer is less than or equal to 0.00 and doOnce = True (Bug prevention)
         {
-            canCount = false;
-            doOnce = true;
-            uiText.text = "Too Slow! Press 'R' to restart";
-            timer = 0.0f;
-            playerObject.GetComponent<FirstPersonController>().enabled = false;
+            canCount = false; // Set canCount to false (Bug prevention)
+            doOnce = true; // Set doOnce to True (Bug prevention)
+            uiText.text = "Too Slow! Press 'R' to restart"; // Display this string 
+            timer = 0.0f; // Sets the timer to 0.0f
+            playerObject.GetComponent<FirstPersonController>().enabled = false; // First person controller script component is disabled
 
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.R)) // If 'R' is pressed
         {
-            playerObject.transform.position = TPLocation.transform.position;
-            timer = mainTimer;
-            canCount = true;
-            doOnce = false;
-            playerObject.GetComponent<FirstPersonController>().enabled = true;
+            playerObject.transform.position = TPLocation.transform.position; // Teleport to original position
+            timer = mainTimer; // Timer is set to the mainTimer value
+            canCount = true; // Bug prevention
+            doOnce = false; // Bug prevention
+            playerObject.GetComponent<FirstPersonController>().enabled = true; // First person character script component is enabled
         }
 
 	}
