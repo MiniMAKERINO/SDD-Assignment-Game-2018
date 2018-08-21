@@ -9,7 +9,6 @@ public class CountdownScript : MonoBehaviour
     [SerializeField] private Text uiText;
     [SerializeField] private float mainTimer;
     [SerializeField] private GameObject TPLocation;
-    [SerializeField] private GameObject TPObject;
     [SerializeField] private GameObject playerObject;
 
     private float timer;
@@ -46,7 +45,7 @@ public class CountdownScript : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R))
         {
-            TPObject.transform.position = TPLocation.transform.position;
+            playerObject.transform.position = TPLocation.transform.position;
             timer = mainTimer;
             canCount = true;
             doOnce = false;
