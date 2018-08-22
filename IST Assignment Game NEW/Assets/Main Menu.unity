@@ -924,7 +924,9 @@ MonoBehaviour:
 
     Space - Jump
 
-    SHIFT HOLD - Walk'
+    SHIFT HOLD - Walk
+
+    R - Restart'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
@@ -990,15 +992,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.18856812, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.18856812, y: 0, z: 0, w: -21.640827}
   m_textInfo:
     textComponent: {fileID: 1016755248}
-    characterCount: 70
+    characterCount: 82
     spriteCount: 0
-    spaceCount: 18
-    wordCount: 19
+    spaceCount: 21
+    wordCount: 22
     linkCount: 0
-    lineCount: 6
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
