@@ -11,6 +11,7 @@ public class CountdownScript : MonoBehaviour
     [SerializeField] private GameObject TPLocation; // Start Location
     [SerializeField] private GameObject playerObject; // Player object
 
+    public AudioSource audioClip;
     private float timer; // Secondary timer float
     private bool canCount = true; // Bug/Error prevention boolean adds secondary condition that helps prevents bugs/glitches
     private bool doOnce = false; // Bug/Error prevention boolean adds secondary condition that helps prevents bugs/glitches
@@ -39,6 +40,7 @@ public class CountdownScript : MonoBehaviour
             uiText.text = "Too Slow! Press 'R' to restart"; // Display this string 
             timer = 0.0f; // Sets the timer to 0.0f
             playerObject.GetComponent<FirstPersonController>().enabled = false; // First person controller script component is disabled
+            audioClip.Play();
 
         }
 

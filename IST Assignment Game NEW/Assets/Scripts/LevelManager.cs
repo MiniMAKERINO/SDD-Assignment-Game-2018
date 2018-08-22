@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public void StartGame() 
+    public void StartGame() // Start Game function, used for button reference, hence a public function
     {
-        SceneManager.LoadScene("Scene 1");
+        SceneManager.LoadScene("Scene 1"); // Loads scene 1
 
     }
 
-    public void QuitGame() {
-        Debug.Log("QUIT works just fine!"); 
-        Application.Quit();
+    public void QuitGame() // Quit Game Function, used for button reference, hence a public function
+    {
+        Debug.Log("QUIT works just fine!"); //Logs a msg to console
+        Application.Quit(); // Quit application
     }
 
 
